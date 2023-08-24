@@ -1,0 +1,18 @@
+<!-- Título principal para alertar al usuario -->
+<h4>¡ATENCION USUARIO! Seleccione las licencias que desea</h4>
+
+<!-- Lista de licencias disponibles para selección -->
+<ul>
+  <!-- Bucle que itera sobre cada licencia disponible -->
+  <!-- *ngFor es una directiva de Angular que repite el elemento li por cada licencia en availableLicenses -->
+  <li *ngFor="let license of availableLicenses" class="license-item">
+  
+    <!-- Muestra el nombre de la licencia actual -->
+    <span class="license-text">{{ license.nombre }}</span>
+    
+    <!-- Botón para que el usuario seleccione la licencia actual -->
+    <!-- El evento (click) es un binding de Angular que llama a la función selectLicense con la licencia actual como parámetro cuando el botón es clickeado -->
+    <button (click)="selectLicense(license)">Seleccionar</button>
+    
+  </li>
+</ul>

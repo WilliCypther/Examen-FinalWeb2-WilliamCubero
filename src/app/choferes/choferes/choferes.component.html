@@ -1,0 +1,43 @@
+<div class="chofer-component">
+    <h1>¡ATENCION USUARIO Bienvenido a la gestión de choferes!</h1>
+
+    <!-- Iniciamos el formulario reactivo con [formGroup]="form" -->
+    <form [formGroup]="form" class="container">
+
+        <div class="chofer-data">
+            <label for="nombre">Nombre:</label>
+            <!-- Usamos formControlName para vincular el input con el control nombre del formulario reactivo -->
+            <input type="text" id="nombre" formControlName="nombre" required>
+
+            <label for="apellidos">Apellidos:</label>
+            <!-- Usamos formControlName para vincular el input con el control apellido del formulario reactivo -->
+            <input type="text" id="apellidos" formControlName="apellido" required>
+
+            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+            <!-- Usamos formControlName para vincular el input con el control fechaNacimiento del formulario reactivo -->
+            <input type="date" id="fechaNacimiento" formControlName="fechaNacimiento" required>
+        </div>
+<br>
+        <div class="chofer-licenses">
+            <div class="license-item" *ngFor="let license of licensesArray">
+                <span>{{license.nombre}} </span>
+                <br>
+                <button class="remove-license" (click)="removeLicense(license)">Eliminar</button>
+            </div>
+            <button class="open-popup" (click)="openLicensesPopup()">Agregar Licencia +</button>
+        </div>
+        <button class="save-data" (click)="saveChoferData()">Registrar Chofer</button>
+        
+    </form> <!-- Finalizamos el formulario reactivo -->
+
+    <h3>¡ATENCION USUARIO! Las Licencias seleccionadas son:</h3>
+    <ul>
+        <li *ngFor="let license of licensesArray">
+            {{ license.nombre }}
+            <button class="remove-license" (click)="removeLicense(license)">Eliminar</button>
+        </li>
+    </ul>
+
+
+    
+</div>
